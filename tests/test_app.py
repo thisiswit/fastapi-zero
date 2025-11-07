@@ -74,11 +74,12 @@ def test_update_user_inexistente_deve_retornar_404_not_found(client):
     response = client.put(
         '/users/999',
         json={
-        'username': 'Ana',
-        'email': 'ana@email.com',
-        'password': 'passwordd',
-        },)
-    
+            'username': 'Ana',
+            'email': 'ana@email.com',
+            'password': 'passwordd',
+        },
+    )
+
     assert response.status_code == HTTPStatus.NOT_FOUND
     assert response.json() == {
         'detail': 'Usuário não encontrado!',
